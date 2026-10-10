@@ -1,0 +1,56 @@
+model:
+  weights_path: "yolo11n.pt"  # Ultralytics auto-download; use path under models/ for custom wildlife weights
+  device: "auto"  # auto | cpu | cuda | mps
+  confidence_threshold: 0.25
+  iou_threshold: 0.45
+  image_size: 640
+  # Map display names to YOLO class names in the checkpoint (must exist in model.names)
+  # COCO pretrained models do NOT include tiger, leopard, wild_boar, etc.
+  supported_classes: []  # empty = all classes from model; or list e.g. ["bear", "elephant", "bird"]
+  class_aliases: {}  # optional: { "elephant": "Asian Elephant" }
+
+tracking:
+  tracker: "bytetrack.yaml"
+  persist: true
+  frame_sample_interval: 1  # process every Nth frame (1 = all frames)
+
+video:
+  max_upload_mb: 500
+  allowed_extensions: [".mp4", ".avi", ".mov", ".mkv", ".webm"]
+  output_codec: "mp4v"
+
+image:
+  max_upload_mb: 50
+  allowed_extensions: [".jpg", ".jpeg", ".png", ".bmp", ".webp", ".tif", ".tiff"]
+
+batch:
+  max_files: 500
+  input_dir: "data/input"
+  dedupe_by_content_hash: true
+
+paths:
+  output_dir: "data/output"
+  annotated_images_dir: "data/output/annotated_images"
+  annotated_videos_dir: "data/output/annotated_videos"
+  exports_dir: "data/output/exports"
+  database_path: "data/output/wildlife.db"
+
+logging:
+  level: "INFO"
+  file: "logs/wildlife.log"
+  max_bytes: 10485760
+  backup_count: 3
+
+app:
+  brand_name: "karanverse"
+  brand_tagline: "Wildlife Detection & Monitoring System"
+  title: "karanverse Wildlife Detection & Monitoring System"
+  page_icon: "🌌"
+
+training:
+  default_base_weights: "yolo11n.pt"
+  project_dir: "models/runs"
+  name: "wildlife_train"
+  epochs: 50
+  batch_size: 16
+  workers: 4

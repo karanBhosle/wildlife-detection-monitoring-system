@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Environment
+.env
+
+# Data & artifacts
+data/input/*
+!data/input/.gitkeep
+data/output/*
+!data/output/.gitkeep
+data/datasets/*
+!data/datasets/.gitkeep
+
+# Models (large weights)
+models/*.pt
+models/*.onnx
+!models/README.md
+
+# Logs
+logs/
+*.log
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Test caches
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Temp
+tmp/
+*.tmp

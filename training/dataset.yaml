@@ -1,0 +1,23 @@
+# Example Ultralytics dataset config for custom wildlife training.
+# Replace paths with your annotated dataset (YOLO format: images + labels).
+#
+# Suggested public starting points (verify license before use):
+# - WILDCAM / Caltech Camera Traps (for research; export to YOLO)
+# - Custom park/reserve annotations with species labels
+#
+# Required: one .txt label per image with lines: class_id x_center y_center width height (normalized)
+
+path: ../data/datasets/wildlife_yolo
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: tiger
+  1: leopard
+  2: elephant
+  3: deer
+  4: wild_boar
+  5: bear
+  6: fox
+  7: monkey
